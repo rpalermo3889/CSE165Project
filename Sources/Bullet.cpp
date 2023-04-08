@@ -1,9 +1,10 @@
 #include "Headers/Bullet.h"
+#include "Headers/Enemy.h"
+#include "Headers/Game.h"
 #include <QTimer>
 #include <QGraphicsScene>
 #include <QList>
-#include "Headers/Enemy.h"
-#include "Headers/Game.h"
+
 
 extern Game * game; // there is an external global object called game
 

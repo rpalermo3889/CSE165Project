@@ -1,8 +1,8 @@
 #include "Headers/Player.h"
-#include <QGraphicsScene>
-#include <QKeyEvent>
 #include "Headers/Bullet.h"
 #include "Headers/Enemy.h"
+#include <QGraphicsScene>
+#include <QKeyEvent>
 
 Player::Player(QGraphicsItem *parent): QGraphicsPixmapItem(parent){
     // Set bullet sound

@@ -1,8 +1,8 @@
 #include "Headers/Enemy.h"
+#include "Headers/Game.h"
 #include <QTimer>
 #include <QGraphicsScene>
-#include <stdlib.h> // rand() -> really large int
-#include "Headers/Game.h"
+#include <stdlib.h>
 
 extern Game * game;
 

@@ -6,6 +6,16 @@
 #include <QAudioOutput>
 
 Game::Game(QWidget *parent){
+    /*
+    view = new QGraphicsView(this);
+    QOpenGLWidget *gl = new QOpenGLWidget();
+    QSurfaceFormat format;
+    format.setSamples(4);
+    gl->setFormat(format);
+    view->setViewport(gl);
+    */
+
+    // /*
     //create scene
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,800,600);
@@ -17,8 +27,9 @@ Game::Game(QWidget *parent){
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setFixedSize(800,600);
+    // */
 
-    //create an item to put into the scne
+    //create an item to put into the scene
     Player * player = new Player();
     player->setPos(400,540);
     // make the player focusable
@@ -27,7 +38,7 @@ Game::Game(QWidget *parent){
     //add the player to the scene
     scene->addItem(player);
 
-    // cretae the score/health
+    // create the score/health
     score = new Score();
     scene->addItem(score);
     health = new Health();
@@ -44,8 +55,8 @@ Game::Game(QWidget *parent){
     QAudioOutput * audioOutput = new QAudioOutput();
     music->setAudioOutput(audioOutput);
     music->setSource(QUrl("qrc:/sounds/Resources/bgsound.mp3"));
-    audioOutput->setVolume(1);    
-    // play bulletsound
+    audioOutput->setVolume(1);
+
     if(music->playbackState() == QMediaPlayer::PlayingState){
         music->setPosition(0);
     }
@@ -57,3 +68,23 @@ Game::Game(QWidget *parent){
     show();
 }
 
+/*
+Game::~Game(){
+
+}
+
+void Game::setGame()
+{
+    //create scene
+    scene = new QGraphicsScene();
+    scene->setSceneRect(0,0,800,600);
+    setBackgroundBrush(QBrush(QImage(":/images/Resources/bg.png")));
+
+    // make the newly created scene the scene to visualize (since Game is a QGraphicsView Widget,
+    // it can be used to visualize scenes)
+    setScene(scene);
+    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    setFixedSize(800,600);
+}
+*/

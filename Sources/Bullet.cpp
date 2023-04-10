@@ -5,10 +5,24 @@
 #include <QGraphicsScene>
 #include <QList>
 
-
 extern Game * game; // there is an external global object called game
 
 Bullet::Bullet(QGraphicsItem * parent): QObject(), QGraphicsPixmapItem(parent){
+    // Set bullet sound
+    bulletsound = new QMediaPlayer();
+    bulletaudio = new QAudioOutput();
+    bulletsound->setAudioOutput(bulletaudio);
+    bulletsound->setSource(QUrl("qrc:/sounds/Resources/bullet.wav"));
+    bulletaudio->setVolume(1);
+
+    // play bulletsound
+    if(bulletsound->playbackState() == QMediaPlayer::PlayingState){
+        bulletsound->setPosition(0);
+    }
+    else if (bulletsound->playbackState() == QMediaPlayer::StoppedState){
+        bulletsound->play();
+    }
+
     // draw graphics
     setPixmap(QPixmap(":/images/Resources/bullet.png"));
 

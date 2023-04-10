@@ -3,7 +3,7 @@
 
 Health::Health(QGraphicsItem *parent): QGraphicsTextItem(parent){
     // initialize the score to 0
-    health = 3;
+    health = 20;
 
     // draw the text
     setPlainText(QString("Health: ") + QString::number(health)); // Health: 3

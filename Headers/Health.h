@@ -6,8 +6,8 @@
 class Health: public QGraphicsTextItem{
 public:
     Health(QGraphicsItem * parent=0);
-    void decrease();
-    int getHealth();
+    void decrease(); // Accessor for the health varibale;
+    int getHealth(); // Mutator for the score variable;
 
 private:
     int health;

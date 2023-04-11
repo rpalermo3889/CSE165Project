@@ -10,6 +10,7 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    Sources/Boss.cpp \
     Sources/Bullet.cpp \
     Sources/Enemy.cpp \
     Sources/Game.cpp \
@@ -19,6 +20,7 @@ SOURCES += \
     Sources/main.cpp \
 
 HEADERS += \
+    Headers/Boss.h \
     Headers/Enemy.h \
     Headers/Game.h \
     Headers/Bullet.h \
@@ -26,7 +28,7 @@ HEADERS += \
     Headers/Game.h \
     Headers/Health.h \
     Headers/Player.h \
-    Headers/Score.h \
+    Headers/Score.h
 
 LIBS += -lopengl32 -lglu32
 

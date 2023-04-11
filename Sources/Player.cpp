@@ -9,6 +9,7 @@ Player::Player(QGraphicsItem *parent): QGraphicsPixmapItem(parent){
     setPixmap(QPixmap(":/images/Resources/player.png"));
 }
 
+// Player Controls
 void Player::keyPressEvent(QKeyEvent *event){
     if (event->key() == Qt::Key_Left){
         if (pos().x() > 0)
@@ -30,4 +31,9 @@ void Player::spawn(){
     //create enemy
     Enemy * enemy = new Enemy();
     scene()->addItem(enemy);
+}
+
+Player::~Player()
+{
+
 }

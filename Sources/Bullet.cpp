@@ -58,3 +58,8 @@ void Bullet::move(){
         delete this;
     }
 }
+
+Bullet::~Bullet()
+{
+
+}

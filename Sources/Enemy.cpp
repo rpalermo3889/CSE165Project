@@ -37,3 +37,7 @@ void Enemy::move(){
     }
 }
 
+Enemy::~Enemy()
+{
+
+}

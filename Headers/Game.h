@@ -12,7 +12,7 @@
 
 class Game: public QGraphicsView{
 public:
-    Game(QWidget * parent = 0);
+    Game(QWidget * parent = 0); // constructor
 
     QGraphicsView *view;
     QGraphicsScene * scene;

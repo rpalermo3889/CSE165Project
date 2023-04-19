@@ -30,7 +30,6 @@ HEADERS += \
     Headers/Player.h \
     Headers/Score.h
 
-LIBS += -lopengl32 -lglu32
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

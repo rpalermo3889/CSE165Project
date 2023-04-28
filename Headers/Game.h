@@ -13,14 +13,13 @@
 class Game: public QGraphicsView{
 public:
     Game(QWidget * parent = 0); // constructor
+    ~Game();
 
     QGraphicsView *view;
     QGraphicsScene * scene;
     Player * player;
     Score * score;
     Health * health;
-
-    ~Game();
 };
 
 #endif // GAME_H

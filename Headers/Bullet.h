@@ -13,7 +13,7 @@ public:
     Bullet(QGraphicsItem * parent=0); // constructor
     ~Bullet();
 public slots:
-    void move();
+    virtual void move();
 private:
     QMediaPlayer * bulletsound;
     QAudioOutput * bulletaudio;

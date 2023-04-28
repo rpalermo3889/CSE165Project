@@ -12,7 +12,7 @@ public:
     ~Player();
     void keyPressEvent(QKeyEvent * event);
 public slots:
-    void spawn();
+    virtual void spawn();
 };
 
 #endif // PLAYER_H

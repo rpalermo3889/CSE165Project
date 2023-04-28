@@ -20,10 +20,7 @@ public:
     Score * score;
     Health * health;
 
-    /*
     ~Game();
-    virtual void setGame();
-    */
 };
 
 #endif // GAME_H

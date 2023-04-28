@@ -6,16 +6,6 @@
 #include <QAudioOutput>
 
 Game::Game(QWidget *parent){
-    /*
-    view = new QGraphicsView(this);
-    QOpenGLWidget *gl = new QOpenGLWidget();
-    QSurfaceFormat format;
-    format.setSamples(4);
-    gl->setFormat(format);
-    view->setViewport(gl);
-    */
-
-    // /*
     //create scene
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,800,600);
@@ -24,10 +14,10 @@ Game::Game(QWidget *parent){
     // make the newly created scene the scene to visualize (since Game is a QGraphicsView Widget,
     // it can be used to visualize scenes)
     setScene(scene);
+    setViewport(new QOpenGLWidget());
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setFixedSize(800,600);
-    // */
 
     //create an item to put into the scene
     Player * player = new Player();
@@ -68,23 +58,7 @@ Game::Game(QWidget *parent){
     show();
 }
 
-/*
-Game::~Game(){
-
-}
-
-void Game::setGame()
+Game::~Game()
 {
-    //create scene
-    scene = new QGraphicsScene();
-    scene->setSceneRect(0,0,800,600);
-    setBackgroundBrush(QBrush(QImage(":/images/Resources/bg.png")));
 
-    // make the newly created scene the scene to visualize (since Game is a QGraphicsView Widget,
-    // it can be used to visualize scenes)
-    setScene(scene);
-    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    setFixedSize(800,600);
 }
-*/

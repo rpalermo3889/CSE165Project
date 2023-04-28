@@ -47,12 +47,11 @@ Game::Game(QWidget *parent){
     music->setSource(QUrl("qrc:/sounds/Resources/bgsound.mp3"));
     audioOutput->setVolume(1);
 
-    if(music->playbackState() == QMediaPlayer::PlayingState){
-        music->setPosition(0);
-    }
-    else if (music->playbackState() == QMediaPlayer::StoppedState){
-        music->play();
-    }
+    // loop the music
+    connect(music,&QMediaPlayer::mediaStatusChanged,music,&QMediaPlayer::play);
+
+    // play the music
+    music->play();
 
     // show the view
     show();

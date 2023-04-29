@@ -1,9 +1,12 @@
 #include "Headers/Game.h"
+#include "Headers/Button.h"
 #include <QTimer>
 #include <QBrush>
 #include <QImage>
 #include <QMediaPlayer>
 #include <QAudioOutput>
+#include <QGraphicsItem>
+
 
 Game::Game(QWidget *parent){
     //create scene
@@ -61,3 +64,35 @@ Game::~Game()
 {
 
 }
+void Game::start(){
+    scene -> clear();
+
+}
+
+void Game::displayMainMenu(){
+    // title text
+    QGraphicsTextItem* titleText = new QGraphicsTextItem(QString("Star Shootr"));
+    QFont titleFont("comic sans",50);
+    titleText ->setFont(titleFont);
+    int txPos = this-> width()/2 - titleText -> boundingRect().width()/2;
+    int tyPos = 150;
+    titleText -> setPos(txPos, tyPos);
+    scene -> addItem(titleText);
+
+    // create play button
+    Button* playButton = new Button(QString("Play"));
+    int bxPos = this-> width()/2 - playButton -> boundingRect().width()/2;
+    int byPos = 275;
+    playButton -> setPos(bxPos, byPos);
+    connect(playButton, SIGNAL(clicked()),this,SLOT(start()));
+    scene -> addItem(playButton);
+    // quit button
+    Button* quitButton = new Button(QString("Quit"));
+    int dxPos = this-> width()/2 - quitButton -> boundingRect().width()/2;
+    int dyPos = 350;
+    quitButton-> setPos(dxPos, dyPos);
+    connect(quitButton, SIGNAL(clicked()),this,SLOT(close()));
+    scene ->addItem(quitButton);
+}
+
+

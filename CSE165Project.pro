@@ -11,6 +11,7 @@ CONFIG += c++17
 
 SOURCES += \
     Sources/Bullet.cpp \
+    Sources/Button.cpp \
     Sources/Enemy.cpp \
     Sources/Game.cpp \
     Sources/Health.cpp \
@@ -19,6 +20,7 @@ SOURCES += \
     Sources/main.cpp \
 
 HEADERS += \
+    Headers/Button.h \
     Headers/Enemy.h \
     Headers/Game.h \
     Headers/Bullet.h \

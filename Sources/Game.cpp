@@ -1,11 +1,12 @@
 #include "Headers/Game.h"
-#include "Headers/Button.h"
+#include "Headers/Menu.h"
 #include <QTimer>
 #include <QBrush>
 #include <QImage>
 #include <QMediaPlayer>
 #include <QAudioOutput>
 #include <QGraphicsItem>
+#include <QGraphicsTextItem>
 
 
 Game::Game(QWidget *parent){
@@ -65,9 +66,11 @@ Game::~Game()
 
 }
 void Game::start(){
-    scene -> clear();
-
+    if (!scene->items().isEmpty()) {
+        scene->clear();
+    }
 }
+
 
 void Game::displayMainMenu(){
     // title text
@@ -80,19 +83,24 @@ void Game::displayMainMenu(){
     scene -> addItem(titleText);
 
     // create play button
-    Button* playButton = new Button(QString("Play"));
-    int bxPos = this-> width()/2 - playButton -> boundingRect().width()/2;
+    // Play button
+    Menu* menuPlay = new Menu(QString("Play"));
+    int bxPos = this->width() / 2 - menuPlay->boundingRect().width() / 2;
     int byPos = 275;
-    playButton -> setPos(bxPos, byPos);
-    connect(playButton, SIGNAL(clicked()),this,SLOT(start()));
-    scene -> addItem(playButton);
+    menuPlay->setPos(bxPos, byPos);
+    connect(menuPlay, SIGNAL(clicked()), this, SLOT(start()));
+    scene->addItem(menuPlay);
+
     // quit button
-    Button* quitButton = new Button(QString("Quit"));
-    int dxPos = this-> width()/2 - quitButton -> boundingRect().width()/2;
+    Menu* quitMenu = new Menu(QString("Quit"));
+    int dxPos = this-> width()/2 - quitMenu -> boundingRect().width()/2;
     int dyPos = 350;
-    quitButton-> setPos(dxPos, dyPos);
-    connect(quitButton, SIGNAL(clicked()),this,SLOT(close()));
-    scene ->addItem(quitButton);
+    quitMenu-> setPos(dxPos, dyPos);
+    connect(quitMenu, SIGNAL(clicked()),this,SLOT(close()));
+    scene ->addItem(quitMenu);
 }
+
+
+
 
 

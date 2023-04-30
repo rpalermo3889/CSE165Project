@@ -11,22 +11,22 @@ CONFIG += c++17
 
 SOURCES += \
     Sources/Bullet.cpp \
-    Sources/Button.cpp \
     Sources/Enemy.cpp \
     Sources/Game.cpp \
     Sources/Health.cpp \
+    Sources/Menu.cpp \
     Sources/Player.cpp \
     Sources/Score.cpp \
     Sources/main.cpp \
 
 HEADERS += \
-    Headers/Button.h \
     Headers/Enemy.h \
     Headers/Game.h \
     Headers/Bullet.h \
     Headers/Enemy.h \
     Headers/Game.h \
     Headers/Health.h \
+    Headers/Menu.h \
     Headers/Player.h \
     Headers/Score.h
 

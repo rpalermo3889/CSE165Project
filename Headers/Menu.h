@@ -1,15 +1,15 @@
-#ifndef BUTTON_H
-#define BUTTON_H
+#ifndef MENU_H
+#define MENU_H
 
 #include <QGraphicsRectItem>
 #include <QGraphicsSceneMouseEvent>
 
-class Button :public QObject, public QGraphicsRectItem{
+class Menu :public QObject, public QGraphicsRectItem{
     Q_OBJECT
 public:
 
     // constructor
-    Button(QString name, QGraphicsItem* parent = NULL);
+    Menu(QString name, QGraphicsItem* parent = NULL);
 
     // public  (event)
     void mousePressEvent (QGraphicsSceneMouseEvent *event);
@@ -22,4 +22,4 @@ private:
     QGraphicsTextItem* text;
 };
 
-#endif // BUTTON_H
+#endif // MENU_H

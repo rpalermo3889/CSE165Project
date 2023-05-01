@@ -129,8 +129,4 @@ void Game::displayMainMenu(){
     backToMenu-> setPos(exPos, eyPos);
     connect(backToMenu, SIGNAL(clicked()),this,SLOT(backToMenu()));
     scene ->addItem(backToMenu);
-
 }
-
-
-

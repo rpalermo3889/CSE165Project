@@ -7,9 +7,7 @@
 class Menu :public QObject, public QGraphicsRectItem{
     Q_OBJECT
 public:
-
-    // constructor
-    Menu(QString name, QGraphicsItem* parent = NULL);
+    Menu(QString name, QGraphicsItem* parent = NULL);  // constructor
 
     // public  (event)
     void mousePressEvent (QGraphicsSceneMouseEvent *event);
@@ -17,7 +15,6 @@ public:
     void hoverLeaveEvent (QGraphicsSceneHoverEvent *event);
 signals:
     void clicked ();
-
 private:
     QGraphicsTextItem* text;
 };

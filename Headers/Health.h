@@ -8,7 +8,6 @@ public:
     Health(QGraphicsItem * parent=0);  // constructor
     virtual void decrease(); // Accessor for the health variable
     int getHealth(); // Mutator for the score variable
-
 private:
     int health;
 };

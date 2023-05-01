@@ -7,9 +7,6 @@
 #include "Headers/Player.h"
 #include "Headers/Score.h"
 #include "Headers/Health.h"
-
-
-
 #include <QOpenGLWidget>
 #include <QPushButton>
 
@@ -26,11 +23,9 @@ public:
     Health * health;
     QPushButton* backToMenuButton;
     void displayMainMenu();
-
 public slots:
     void backToMenu();
-      void start();
-
+    void start();
 };
 
 #endif // GAME_H

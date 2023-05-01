@@ -7,7 +7,7 @@ Menu::Menu(QString name, QGraphicsItem *parent): QGraphicsRectItem(parent){
     setRect(0,0,200,50);
     QBrush brush;
     brush.setStyle(Qt::Dense3Pattern);
-    brush.setColor(Qt::white);
+    brush.setColor(Qt::green);
     setBrush(brush);
 
     // draw the text
@@ -39,3 +39,4 @@ void Menu::hoverLeaveEvent(QGraphicsSceneHoverEvent *event){
     brush.setColor(Qt::red);
     setBrush(brush);
 }
+

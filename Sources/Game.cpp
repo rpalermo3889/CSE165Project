@@ -7,9 +7,12 @@
 #include <QAudioOutput>
 #include <QGraphicsItem>
 #include <QGraphicsTextItem>
+#include <QPushButton>
+
 
 
 Game::Game(QWidget *parent){
+
     //create scene
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,800,600);
@@ -22,6 +25,39 @@ Game::Game(QWidget *parent){
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setFixedSize(800,600);
+
+    // play background music
+    QMediaPlayer *music = new QMediaPlayer();
+    QAudioOutput *audioOutput = new QAudioOutput();
+    music->setAudioOutput(audioOutput);
+    music->setSource(QUrl("qrc:/sounds/Resources/bgsound.mp3"));
+    audioOutput->setVolume(1);
+
+    // loop the music
+    connect(music,&QMediaPlayer::mediaStatusChanged,music,&QMediaPlayer::play);
+
+    // play the music
+    music->play();
+}
+
+
+Game::~Game()
+{
+
+}
+
+void Game::start(){
+    // clear the screen
+    scene->clear();
+
+    // create the back to menu button
+    backToMenuButton = new QPushButton("Back to Menu", this);
+    backToMenuButton->setFixedSize(100, 50);
+    backToMenuButton->move(700, 0);
+    backToMenuButton->setVisible(false);  // hide the button initially
+
+    // connect the button to the slot
+    connect(backToMenuButton, SIGNAL(clicked()), this, SLOT(backToMenu()));
 
     //create an item to put into the scene
     Player * player = new Player();
@@ -44,33 +80,20 @@ Game::Game(QWidget *parent){
     QObject::connect(timer,SIGNAL(timeout()),player,SLOT(spawn()));
     timer->start(2000);
 
-    // play background music
-    QMediaPlayer * music = new QMediaPlayer();
-    QAudioOutput * audioOutput = new QAudioOutput();
-    music->setAudioOutput(audioOutput);
-    music->setSource(QUrl("qrc:/sounds/Resources/bgsound.mp3"));
-    audioOutput->setVolume(1);
-
-    // loop the music
-    connect(music,&QMediaPlayer::mediaStatusChanged,music,&QMediaPlayer::play);
-
-    // play the music
-    music->play();
-
     // show the view
     show();
+
+    // show the back to menu button
+    backToMenuButton->setVisible(true);
 }
 
-Game::~Game()
-{
+void Game::backToMenu(){
+    // hide the back to menu button
+    backToMenuButton->setVisible(false);
 
+    // display the main menu
+    displayMainMenu();
 }
-void Game::start(){
-    if (!scene->items().isEmpty()) {
-        scene->clear();
-    }
-}
-
 
 void Game::displayMainMenu(){
     // title text
@@ -98,9 +121,16 @@ void Game::displayMainMenu(){
     quitMenu-> setPos(dxPos, dyPos);
     connect(quitMenu, SIGNAL(clicked()),this,SLOT(close()));
     scene ->addItem(quitMenu);
+
+    // add the back to menu button
+    Menu* backToMenu = new Menu(QString("Back to Menu"));
+    int exPos = this-> width()/2 - backToMenu->boundingRect().width()/2;
+    int eyPos = 425;
+    backToMenu-> setPos(exPos, eyPos);
+    connect(backToMenu, SIGNAL(clicked()),this,SLOT(backToMenu()));
+    scene ->addItem(backToMenu);
+
 }
-
-
 
 
 

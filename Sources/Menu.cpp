@@ -27,16 +27,16 @@ void Menu::mousePressEvent(QGraphicsSceneMouseEvent *event){
 
 void Menu::hoverEnterEvent(QGraphicsSceneHoverEvent *event){
     QBrush brush;
-    brush.setStyle(Qt::Dense7Pattern);
-    brush.setColor(Qt::green);
+    brush.setStyle(Qt::Dense3Pattern);
+    brush.setColor(Qt::red);
     setBrush(brush);
 
 }
 
 void Menu::hoverLeaveEvent(QGraphicsSceneHoverEvent *event){
     QBrush brush;
-    brush.setStyle(Qt::Dense7Pattern);
-    brush.setColor(Qt::red);
+    brush.setStyle(Qt::Dense3Pattern);
+    brush.setColor(Qt::green);
     setBrush(brush);
 }
 

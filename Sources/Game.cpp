@@ -96,6 +96,9 @@ void Game::backToMenu(){
 }
 
 void Game::displayMainMenu(){
+    // clear the screen
+    scene->clear();
+
     // title text
     QGraphicsTextItem* titleText = new QGraphicsTextItem(QString("Star Shootr"));
     QFont titleFont("comic sans",50);

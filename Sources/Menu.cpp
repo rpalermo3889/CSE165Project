@@ -19,18 +19,16 @@ Menu::Menu(QString name, QGraphicsItem *parent): QGraphicsRectItem(parent){
     // responds to hover
     setAcceptHoverEvents(true);
 }
+
 void Menu::mousePressEvent(QGraphicsSceneMouseEvent *event){
     emit clicked();
-
 }
-
 
 void Menu::hoverEnterEvent(QGraphicsSceneHoverEvent *event){
     QBrush brush;
     brush.setStyle(Qt::Dense3Pattern);
     brush.setColor(Qt::red);
     setBrush(brush);
-
 }
 
 void Menu::hoverLeaveEvent(QGraphicsSceneHoverEvent *event){

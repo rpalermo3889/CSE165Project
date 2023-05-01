@@ -10,7 +10,6 @@
 #include <QPushButton>
 
 Game::Game(QWidget *parent){
-
     //create scene
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,800,600);
@@ -47,14 +46,13 @@ void Game::start(){
     // clear the screen
     scene->clear();
 
-    // create the back to menu button
-    backToMenuButton = new QPushButton("Back to Menu", this);
-    backToMenuButton->setFixedSize(100, 50);
-    backToMenuButton->move(700, 0);
-    backToMenuButton->setVisible(false);  // hide the button initially
-
-    // connect the button to the slot
-    connect(backToMenuButton, SIGNAL(clicked()), this, SLOT(backToMenu()));
+    // add the back to menu button
+    Menu* backToMenu = new Menu(QString("Back to Menu"));
+    int exPos = 600;
+    int eyPos = 0;
+    backToMenu-> setPos(exPos, eyPos);
+    connect(backToMenu, SIGNAL(clicked()),this,SLOT(backToMenu()));
+    scene ->addItem(backToMenu);
 
     //create an item to put into the scene
     Player * player = new Player();
@@ -79,15 +77,9 @@ void Game::start(){
 
     // show the view
     show();
-
-    // show the back to menu button
-    backToMenuButton->setVisible(true);
 }
 
 void Game::backToMenu(){
-    // hide the back to menu button
-    backToMenuButton->setVisible(false);
-
     // display the main menu
     displayMainMenu();
 }
@@ -121,12 +113,4 @@ void Game::displayMainMenu(){
     quitMenu-> setPos(dxPos, dyPos);
     connect(quitMenu, SIGNAL(clicked()),this,SLOT(close()));
     scene ->addItem(quitMenu);
-
-    // add the back to menu button
-    Menu* backToMenu = new Menu(QString("Back to Menu"));
-    int exPos = this-> width()/2 - backToMenu->boundingRect().width()/2;
-    int eyPos = 425;
-    backToMenu-> setPos(exPos, eyPos);
-    connect(backToMenu, SIGNAL(clicked()),this,SLOT(backToMenu()));
-    scene ->addItem(backToMenu);
 }

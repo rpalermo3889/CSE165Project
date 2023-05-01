@@ -53,6 +53,7 @@ void Bullet::move(){
 
     //move bullet up
     setPos(x(),y()-10);
+    setZValue(-10);
     if (pos().y() < 0){
         scene()->removeItem(this);
         delete this;

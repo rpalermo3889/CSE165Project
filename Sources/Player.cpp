@@ -22,7 +22,7 @@ void Player::keyPressEvent(QKeyEvent *event){
     else if(event->key() == Qt::Key_Space){
         //create a bullet
         Bullet * bullet = new Bullet();
-        bullet->setPos(x()+19,y()-40);
+        bullet->setPos(x()+19,y()-15);
         scene()->addItem(bullet);
     }
 }

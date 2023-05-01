@@ -9,8 +9,6 @@
 #include <QGraphicsTextItem>
 #include <QPushButton>
 
-
-
 Game::Game(QWidget *parent){
 
     //create scene
@@ -40,7 +38,6 @@ Game::Game(QWidget *parent){
     music->play();
 }
 
-
 Game::~Game()
 {
 
@@ -61,7 +58,7 @@ void Game::start(){
 
     //create an item to put into the scene
     Player * player = new Player();
-    player->setPos(400,540);
+    player->setPos(400,520);
     // make the player focusable
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
